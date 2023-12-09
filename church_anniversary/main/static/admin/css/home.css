@@ -1,0 +1,55 @@
+/* Add this CSS to your existing stylesheet or create a new one */
+
+/* Body styles */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f8f9fa;
+  color: #495057;
+}
+
+/* Header styles */
+h1 {
+  color: #007bff;
+}
+
+/* Carousel styles */
+#photoCarousel {
+  margin-bottom: 40px;
+}
+
+.carousel-inner img {
+  border-radius: 5px;
+}
+
+.carousel-caption {
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 5px;
+  padding: 10px;
+}
+
+/* Prayer form styles */
+form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Button styles */
+button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  form {
+    max-width: 100%;
+  }
+}

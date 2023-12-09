@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Send a Prayer</h1>
+  <form method="post" action="{% url 'prayer' %}">
+    {% csrf_token %}
+    <label for="name">Name:</label>
+    <input type="text" name="name" required>
+    <br>
+    <label for="email">Email:</label>
+    <input type="email" name="email" required>
+    <br>
+    <label for="message">Message:</label>
+    <textarea name="message" required></textarea>
+    <br>
+    <button type="submit">Send Prayer</button>
+  </form>
+{% endblock %}
