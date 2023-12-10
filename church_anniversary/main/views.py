@@ -3,9 +3,14 @@ from django.core.mail import send_mail
 from django.conf import settings
 from django.contrib import messages
 from .models import Photo
+import os
 
 def home(request):
-    photos = Photo.objects.all()
+    # Get the path to the photos folder in the static directory
+    photo_folder_path = os.path.join('main', 'static', 'photos')
+
+    # Get a list of filenames from the photos folder
+    photo_filenames = [filename for filename in os.listdir(photo_folder_path) if filename.endswith(('.jpg', '.jpeg', '.png'))]
 
     if request.method == 'POST':
         name = request.POST.get('name')
@@ -26,4 +31,4 @@ def home(request):
 
         return redirect('home')  # Redirect after processing the form
 
-    return render(request, 'main/home.html', {'photos': photos})
+    return render(request, 'main/home.html', {'photo_filenames': photo_filenames})

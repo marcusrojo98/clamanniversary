@@ -5,15 +5,13 @@
 {% block content %}
   <div class="container mt-5">
     <h1 class="text-center mb-4">25th Year Anniversary Celebration</h1>
-
+    {% load static %}
+    
     <div id="photoCarousel" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
-        {% for photo in photos %}
+        {% for filename in photo_filenames %}
           <div class="carousel-item {% if forloop.first %}active{% endif %}">
-            <img src="{{ photo.image.url }}" alt="{{ photo.description }}" class="d-block w-100 img-fluid">
-            <div class="carousel-caption d-none d-md-block">
-              <p>{{ photo.description }}</p>
-            </div>
+            <img src="{% static 'photos/' %}{{ filename }}" alt="{{ filename }}" class="d-block w-100 img-fluid">
           </div>
         {% endfor %}
       </div>
@@ -28,7 +26,7 @@
     </div>
 
     <div class="mt-5">
-      <h1 class="text-center mb-4">Say a Prayer for Clam  </h1>
+      <h1 class="text-center mb-4">Say a Prayer for Clam</h1>
       <form method="post" action="{% url 'home' %}" class="needs-validation" novalidate>
         {% csrf_token %}
         <div class="form-row">
